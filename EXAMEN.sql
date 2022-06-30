@@ -250,3 +250,25 @@ ALTER TABLE futuro_afiliado ADD CONSTRAINT futuro_afiliado_tipo_parentesco_id_FK
 ALTER TABLE futuro_afiliado ADD CONSTRAINT futuro_afiliado_estado_civil_id_FK FOREIGN KEY (estado_civil_id) REFERENCES estado_civil (id_estado_civil);
 ALTER TABLE aseguradora_empresa ADD CONSTRAINT aseguradora_empresa_empresa_id_FK FOREIGN KEY (empresa_id) REFERENCES empresa (id_empresa);
 ALTER TABLE aseguradora_empresa ADD CONSTRAINT aseguradora_empresa_aseguradora_id_FK FOREIGN KEY (aseguradora_id) REFERENCES aseguradora (id_aseguradora);
+
+---- INSERT DE DATOS:D
+ALTER SESSION SET NLS_DATE_FORMAT= 'DD/MM/YYYY'
+INSERT INTO solicitud_ingreso VALUES (1, '03/04/2021');
+INSERT INTO solicitud_ingreso VALUES (2, '07/09/2017');
+INSERT INTO region VALUES (1, 'METROPOLITANA DE SANTIAGO');
+INSERT INTO region VALUES (2, 'ARICA Y PARINACOTA');
+INSERT INTO region VALUES (3, 'TARAPACA');
+INSERT INTO provincia VALUES (1, 'MAGALLANES')
+INSERT INTO provincia VALUES (2, 'VALDIVIA')
+INSERT INTO provincia VALUES (3, 'IQUIQUE')
+INSERT INTO comuna VALUES (1, 'LA FLORIDA');
+INSERT INTO comuna VALUES (2, 'PUENTE ALTO');
+INSERT INTO comuna VALUES (3, 'LA GRANJA');
+INSERT INTO nacionalidad VALUES (1,'CHILENA/O');
+INSERT INTO nacionalidad VALUES (2,'MEXICANA/O');
+INSERT INTO nacionalidad VALUES (3,'VENEZOLANA/O');
+INSERT INTO discapacidad VALUES ('')
+INSERT INTO vehiculo VALUES (1,'CHEVROLET', 'CAMARO', '1234','AZUL', 'tipo', '1111','11111','01');
+INSERT INTO vehiculo VALUES (2, 'BMW', 'sedan', '5678', 'verde', 'tipo', '2222', '22222', '02');
+INSERT INTO vehiculo VALUES (3, 'SUZUKI', 'APV', '9101');
+
