@@ -242,3 +242,11 @@ ALTER TABLE vehiculo ADD CONSTRAINT vehiculo_aseguradora_id_FK FOREIGN KEY (aseg
 ALTER TABLE vehiculo ADD CONSTRAINT vehiculo_descuento_id_FK FOREIGN KEY (descuento_id) REFERENCES descuento (id_descuentos);
 ALTER TABLE provincia ADD CONSTRAINT provincia_region_id_FK FOREIGN KEY (region_id) REFERENCES region (id_region);
 ALTER TABLE comuna ADD CONSTRAINT comuna_provincia_id_FK FOREIGN KEY (provincia_id) REFERENCES provincia (id_provincia);
+ALTER TABLE solicitud_ingreso ADD CONSTRAINT solicitud_ingreso_futuro_afiliado_id_FK FOREIGN KEY (futuro_afiliado_id) REFERENCES futuro_afiliado (id_futuro_afiliado);
+ALTER TABLE solicitud_ingreso ADD CONSTRAINT solicitud_ingreso_estado_postulacion_id_FK FOREIGN KEY (estado_postulacion_id) REFERENCES estado_postulacion (id_postulacion);
+ALTER TABLE sindicato ADD CONSTRAINT sindicato_empresa_id_FK FOREIGN KEY (empresa_id) REFERENCES empresa (id_empresa);
+ALTER TABLE empresa ADD CONSTRAINT empresa_comuna_id_FK FOREIGN KEY (comuna_id) REFERENCES comuna (id_comuna);
+ALTER TABLE futuro_afiliado ADD CONSTRAINT futuro_afiliado_tipo_parentesco_id_FK FOREIGN KEY (tipo_parentesco_id) REFERENCES tipo_parentesco (id_tipo_parentesco);
+ALTER TABLE futuro_afiliado ADD CONSTRAINT futuro_afiliado_estado_civil_id_FK FOREIGN KEY (estado_civil_id) REFERENCES estado_civil (id_estado_civil);
+ALTER TABLE aseguradora_empresa ADD CONSTRAINT aseguradora_empresa_empresa_id_FK FOREIGN KEY (empresa_id) REFERENCES empresa (id_empresa);
+ALTER TABLE aseguradora_empresa ADD CONSTRAINT aseguradora_empresa_aseguradora_id_FK FOREIGN KEY (aseguradora_id) REFERENCES aseguradora (id_aseguradora);
