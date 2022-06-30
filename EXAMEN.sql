@@ -80,14 +80,12 @@ CREATE TABLE forma_pago(
     nombre              VARCHAR2(250) NOT NULL
 );
 
---efectivo tipo?
+
 CREATE TABLE tipo_pago(
     id_pago         NUMBER NOT NULL,
     nombre          VARCHAR2(250) NOT NULL                        
 );
 
-
--- id cheque o numero de serie?
 CREATE TABLE cheque(
     id_cheque       NUMBER NOT NULL,
     numero_cheque   NUMBER NOT NULL,
@@ -190,6 +188,9 @@ CREATE TABLE tipo_beneficio(
     id_tipo_beneficio           NUMBER NOT NULL,
     nombre                      VARCHAR2(250) NOT NULL                 
 );
+
+--- CREACION DE PRIMARY KEY 
+
 ALTER TABLE afiliados ADD CONSTRAINT afiliados_PK PRIMARY KEY (id_afiliado);
 ALTER TABLE pagos ADD CONSTRAINT pagos_PK PRIMARY KEY (id_pagos);
 ALTER TABLE tipo_pago ADD CONSTRAINT tipo_pago_PK PRIMARY KEY (id_pago);
@@ -218,3 +219,19 @@ ALTER TABLE estado_postulacion ADD CONSTRAINT estado_postulacion_PK PRIMARY KEY 
 ALTER TABLE futuro_afiliado ADD CONSTRAINT futuro_afiliado_PK PRIMARY KEY (id_futuro_afiliado);
 ALTER TABLE tipo_patentesco ADD CONSTRAINT tipo_patentesco_PK PRIMARY KEY (id_tipo_parentesco);
 ALTER TABLE estado_civil ADD CONSTRAINT estado_civil_PK PRIMARY KEY (id_estado_civil);
+
+--- CREACION DE FOREIGN KEY (no se si los id despues del foreign key se agregan como solo "comuna_id" o "comuna_id_comuna")
+ALTER TABLE afiliados ADD CONSTRAINT afiliados_comuna_id_FK FOREIGN KEY (comuna_id) REFERENCES comuna (id_comuna);
+ALTER TABLE afiliados ADD CONSTRAINT afiliados_nacionalidad_id_FK FOREIGN KEY (nacionalidad_id) REFERENCES nacionalidad (id_nacionalidad);
+ALTER TABLE afiliados ADD CONSTRAINT afiliados_tipo_discapacidad_id_FK FOREIGN KEY (tipo_discapacidad_id) REFERENCES tipo_discapacidad (id_tipo_de_discapacidad);
+ALTER TABLE afiliados ADD CONSTRAINT afiliados_solicitud_ingreso_id_FK FOREIGN KEY (solicitud_ingreso_id) REFERENCES solicitud_ingreso (id_solicitud);
+ALTER TABLE telefono_cliente ADD CONSTRAINT telefono_cliente_telefono_id_FK FOREIGN key (telefono_id) REFERENCES telefono (id_telefono);
+ALTER TABLE telefono_cliente ADD CONSTRAINT telefono_cliente_afiliado_id_FK FOREIGN KEY (afiliado_id) REFERENCES afiliado (id_afiliado);
+ALTER TABLE telefono ADD CONSTRAINT telefono_tipo_telefono_id_FK FOREIGN KEY (tipo_telefono_id) REFERENCES tipo_telefono (id_numero);
+ALTER TABLE pagos ADD CONSTRAINT pagos_cheque_id_FK FOREIGN KEY (cheque_id) REFERENCES cheque (id_cheque);
+ALTER TABLE pagos ADD CONSTRAINT pagos_banco_id_FK FOREIGN KEY (banco_id) REFERENCES banco (id_banco);
+ALTER TABLE pagos ADD CONSTRAINT pagos_tipo_pago_id_FK FOREIGN KEY (tipo_pago_id) REFERENCES tipo_pago (id_pago);
+ALTER TABLE pagos ADD CONSTRAINT pagos_forma_pago_id_FK FOREIGN KEY (forma_pago_id) REFERENCES forma_pago (id_forma_pago);
+ALTER TABLE pagos ADD CONSTRAINT pagos_afiliados_id_FK FOREIGN KEY (afiliado_id) REFERENCES afiliado (id_afiliado);
+ALTER TABLE beneficio ADD CONSTRAINT beneficio_descuento_id_FK FOREIGN KEY (descuento_id) REFERENCES descuento (id_descuentos);
+ALTER TABLE 
