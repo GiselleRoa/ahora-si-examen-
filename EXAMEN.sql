@@ -226,12 +226,19 @@ ALTER TABLE afiliados ADD CONSTRAINT afiliados_nacionalidad_id_FK FOREIGN KEY (n
 ALTER TABLE afiliados ADD CONSTRAINT afiliados_tipo_discapacidad_id_FK FOREIGN KEY (tipo_discapacidad_id) REFERENCES tipo_discapacidad (id_tipo_de_discapacidad);
 ALTER TABLE afiliados ADD CONSTRAINT afiliados_solicitud_ingreso_id_FK FOREIGN KEY (solicitud_ingreso_id) REFERENCES solicitud_ingreso (id_solicitud);
 ALTER TABLE telefono_cliente ADD CONSTRAINT telefono_cliente_telefono_id_FK FOREIGN key (telefono_id) REFERENCES telefono (id_telefono);
-ALTER TABLE telefono_cliente ADD CONSTRAINT telefono_cliente_afiliado_id_FK FOREIGN KEY (afiliado_id) REFERENCES afiliado (id_afiliado);
+ALTER TABLE telefono_cliente ADD CONSTRAINT telefono_cliente_afiliado_id_FK FOREIGN KEY (afiliados_id) REFERENCES afiliado (id_afiliado);
 ALTER TABLE telefono ADD CONSTRAINT telefono_tipo_telefono_id_FK FOREIGN KEY (tipo_telefono_id) REFERENCES tipo_telefono (id_numero);
 ALTER TABLE pagos ADD CONSTRAINT pagos_cheque_id_FK FOREIGN KEY (cheque_id) REFERENCES cheque (id_cheque);
 ALTER TABLE pagos ADD CONSTRAINT pagos_banco_id_FK FOREIGN KEY (banco_id) REFERENCES banco (id_banco);
 ALTER TABLE pagos ADD CONSTRAINT pagos_tipo_pago_id_FK FOREIGN KEY (tipo_pago_id) REFERENCES tipo_pago (id_pago);
 ALTER TABLE pagos ADD CONSTRAINT pagos_forma_pago_id_FK FOREIGN KEY (forma_pago_id) REFERENCES forma_pago (id_forma_pago);
-ALTER TABLE pagos ADD CONSTRAINT pagos_afiliados_id_FK FOREIGN KEY (afiliado_id) REFERENCES afiliado (id_afiliado);
+ALTER TABLE pagos ADD CONSTRAINT pagos_afiliados_id_FK FOREIGN KEY (afiliados_id) REFERENCES afiliado (id_afiliado);
 ALTER TABLE beneficio ADD CONSTRAINT beneficio_descuento_id_FK FOREIGN KEY (descuento_id) REFERENCES descuento (id_descuentos);
-ALTER TABLE 
+ALTER TABLE beneficio ADD CONSTRAINT beneficio_tipo_beneficio_id_FK FOREIGN KEY (tipo_beneficio_id) REFERENCES tipo_beneficio (id_tipo_beneficio);
+ALTER TABLE beneficio ADD CONSTRAINT beneficio_afiliados_id_FK FOREIGN KEY (afiliados_id) REFERENCES afiliados (id_afiliado);
+ALTER TABLE descuento ADD CONSTRAINT descuento_tipo_transporte_id_FK FOREIGN KEY (tipo_transporte_id) REFERENCES tipo_transporte (id_tipo_transporte);
+ALTER TABLE vehiculo ADD CONSTRAINT vehiculo_afiliados_id_FK FOREIGN KEY (afiliados_id) REFERENCES afiliados (id_afiliado);
+ALTER TABLE vehiculo ADD CONSTRAINT vehiculo_aseguradora_id_FK FOREIGN KEY (aseguradora_id) REFERENCES aseguradora (id_aseguradora);
+ALTER TABLE vehiculo ADD CONSTRAINT vehiculo_descuento_id_FK FOREIGN KEY (descuento_id) REFERENCES descuento (id_descuentos);
+ALTER TABLE provincia ADD CONSTRAINT provincia_region_id_FK FOREIGN KEY (region_id) REFERENCES region (id_region);
+ALTER TABLE comuna ADD CONSTRAINT comuna_provincia_id_FK FOREIGN KEY (provincia_id) REFERENCES provincia (id_provincia);
