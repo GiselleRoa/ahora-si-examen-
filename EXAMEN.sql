@@ -280,4 +280,5 @@ INSERT INTO forma_pago VALUES (1, 'PAGO INICIAL')
 INSERT INTO forma_pago VALUES (2, 'PAGO MENSUAL')
 INSERT INTO pagos VALUES ('001', '07/04/2021', 'SALDADO', '', 1 , 2, 1,'01');
 INSERT INTO pagos VALUES ('002', '09/09/2022', 'SALDADO', '', 1 , 4, 2, '02' );
-INSERT INTO afiliados VALUES ('01',  )
+INSERT INTO afiliados VALUES ('01', '0000', 'Alan', '', 'Brito', '', '07/04/1990', '$2000', 'calle siempre viva #1234', 'M', '', 'alan@b.cl', 'curriculum here', '0909', 1, 1, 1 )
+INSERT INTO afiliados VALUES ('02', '8888', 'Nami', '', 'gyu', '', '05/04/1998', '$4000', 'calle siempre viva #1298', 'F', '', 'nami@g.cl', 'curriculum here', '0909', 2, 1, 2 )
